@@ -1,7 +1,6 @@
-# BikeService
+# RestaurantSystem
 
-Bike service project for object-oriented technologies
-
+Restaurant system for PwJJ
 ## Running the application
 
 The project is a standard Maven project. To run it from the command line,
