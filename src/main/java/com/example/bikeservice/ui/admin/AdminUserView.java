@@ -28,7 +28,7 @@ public class AdminUserView extends VerticalLayout {
         crud.setFindAllOperation(service::findAll);
         crud.setAddOperationVisible(false);
         crud.getGrid().setColumns("id", "firstName", "lastName", "username", "role", "passwordHash");
-        crud.getCrudFormFactory().setVisibleProperties("firstName", "lastName", "username", "role");
+        crud.getCrudFormFactory().setVisibleProperties("firstName", "lastName", "username");
         add(
                 crud,
                 new H1("Add new employee"),
