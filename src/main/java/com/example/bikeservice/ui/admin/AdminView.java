@@ -20,7 +20,7 @@ public class AdminView extends VerticalLayout {
         var deliverycrud = new GridCrud<>(Delivery.class, deliveryService);
         deliverycrud.getCrudFormFactory().setVisibleProperties("name");
         add(
-                new H1("Servises"),
+                new H1("Products"),
                 crud,
                 new H1("Delivery options"),
                 deliverycrud);
