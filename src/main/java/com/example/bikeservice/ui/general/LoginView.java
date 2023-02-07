@@ -29,7 +29,6 @@ public class LoginView extends VerticalLayout {
         var password = new PasswordField("Password");
         add(
                 new Image("images/logo1.png", "logo1"),
-                new H1("Bike service"),
                 new H2("Login to your account"),
                 username,
                 password,
