@@ -10,7 +10,6 @@ import com.example.bikeservice.ui.admin.AdminUserView;
 import com.example.bikeservice.ui.admin.AdminOrderView;
 import com.example.bikeservice.ui.admin.AdminView;
 import com.example.bikeservice.ui.emp.EmpOrderView;
-import com.example.bikeservice.ui.general.MessageView;
 import com.example.bikeservice.ui.user.SettingsView;
 import com.example.bikeservice.ui.user.UserOrderView;
 import com.example.bikeservice.ui.user.MakeOrderView;
@@ -61,7 +60,6 @@ public class AuthService {
             routes.add(new AuthorizedRoute("adminusers", "Users", AdminUserView.class));
             routes.add(new AuthorizedRoute("adminorder", "Orders", AdminOrderView.class));
             routes.add(new AuthorizedRoute("admin", "Admin", AdminView.class));
-            routes.add(new AuthorizedRoute("messages", "Messages", MessageView.class));
             routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
         }
         if (role.equals(Role.EMP)) {
@@ -75,7 +73,6 @@ public class AuthService {
             routes.add(new AuthorizedRoute("makeorderview", "Make order", MakeOrderView.class));
             routes.add(new AuthorizedRoute("userorderview", "Orders", UserOrderView.class));
             routes.add(new AuthorizedRoute("settings", "Settings", SettingsView.class));
-            routes.add(new AuthorizedRoute("messages", "Messages", MessageView.class));
             routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
         }
         return routes;
