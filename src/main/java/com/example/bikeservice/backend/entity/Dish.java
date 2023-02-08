@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Job {
+public class Dish {
 
     @EqualsAndHashCode.Include
     @Id
@@ -26,7 +26,7 @@ public class Job {
 
     private double price;
 
-    public Job(String name, double price) {
+    public Dish(String name, double price) {
         this.name = name;
         this.price = price;
     }

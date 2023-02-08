@@ -2,7 +2,6 @@ package com.example.bikeservice.backend.service;
 
 import com.example.bikeservice.backend.entity.Delivery;
 import com.example.bikeservice.backend.repository.DeliveryRepository;
-import com.example.bikeservice.backend.repository.JobRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.vaadin.crudui.crud.CrudListener;
