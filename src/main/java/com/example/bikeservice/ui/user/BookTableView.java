@@ -73,10 +73,25 @@ public class BookTableView extends VerticalLayout {
     }
 
     public void cancelReservation(Double id) {
-        if (table.isEmpty()) {
+        if (table2.isEmpty()) {
             Notification.show("Enter table id");
         } else {
-
+            Long number = id.longValue();
+            RestaurantTable restaurantTable = tableService.findById(number);
+            if (restaurantTable == null) {
+                Notification.show("Table doesn't exist");
+            } else if (!restaurantTable.isReserved()) {
+                Notification.show("Table isn't booked");
+            } else {
+                User user = VaadinSession.getCurrent().getAttribute(User.class);
+                if (!restaurantTable.getReservedBy().equals(user.getUsername())) {
+                    Notification.show("Cannot cancel other user reservation");
+                } else {
+                    tableService.cancel(restaurantTable);
+                    Notification.show("Reservation canceled");
+                    table2.setValue(null);
+                }
+            }
         }
     }
 }

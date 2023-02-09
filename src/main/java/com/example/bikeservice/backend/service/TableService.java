@@ -38,22 +38,15 @@ public class TableService implements CrudListener<RestaurantTable> {
         repository.delete(restaurantTable);
     }
 
-//    public Collection<CustomerOrder> findAllClients () {
-//        User user = VaadinSession.getCurrent().getAttribute(User.class);
-//        String username = user.getUsername();
-//        Collection<CustomerOrder> orders = findAll();
-//        Collection<CustomerOrder> orders2 = new ArrayList<>();
-//        for (CustomerOrder o : orders) {
-//            if(o.getClient().equals(username)) {
-//                orders2.add(o);
-//            }
-//        }
-//        return orders2;
-//    }
-
     public void book(RestaurantTable table, String user) {
         table.setReserved(true);
         table.setReservedBy(user);
+        repository.save(table);
+    }
+
+    public void cancel(RestaurantTable table) {
+        table.setReserved(false);
+        table.setReservedBy(null);
         repository.save(table);
     }
 
