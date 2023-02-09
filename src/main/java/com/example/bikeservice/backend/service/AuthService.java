@@ -10,6 +10,7 @@ import com.example.bikeservice.ui.admin.AdminUserView;
 import com.example.bikeservice.ui.admin.AdminOrderView;
 import com.example.bikeservice.ui.admin.AdminView;
 import com.example.bikeservice.ui.emp.EmpOrderView;
+import com.example.bikeservice.ui.user.BookTableView;
 import com.example.bikeservice.ui.user.SettingsView;
 import com.example.bikeservice.ui.user.UserOrderView;
 import com.example.bikeservice.ui.user.MakeOrderView;
@@ -73,6 +74,7 @@ public class AuthService {
             routes.add(new AuthorizedRoute("home", "Home", HomeView.class));
             routes.add(new AuthorizedRoute("makeorderview", "Make order", MakeOrderView.class));
             routes.add(new AuthorizedRoute("userorderview", "Orders", UserOrderView.class));
+            routes.add(new AuthorizedRoute("booktableview", "Book table", BookTableView.class));
             routes.add(new AuthorizedRoute("settings", "Settings", SettingsView.class));
             routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
         }

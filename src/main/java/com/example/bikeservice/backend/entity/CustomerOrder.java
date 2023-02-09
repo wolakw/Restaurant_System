@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -21,7 +22,8 @@ public class CustomerOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @ManyToOne
+    private Dish name;
 
     private String description;
 
@@ -34,29 +36,29 @@ public class CustomerOrder {
 
     private String employee;
 
-    private LocalDate orderDate;
-    private LocalDate pickupDate;
+    private LocalDateTime orderDate;
+    private LocalDateTime pickupDate;
 
-    public CustomerOrder(String name, String description, Delivery delivery, Status status, String client) {
+    public CustomerOrder(Dish name, String description, Delivery delivery, Status status, String client) {
         this.name = name;
         this.description = description;
         this.delivery = delivery;
         this.status = status;
         this.client = client;
         this.employee = "Not assigned";
-        this.orderDate = LocalDate.now();
-        this.pickupDate = LocalDate.now().plusDays(5);
+        this.orderDate = LocalDateTime.now();
+        this.pickupDate = LocalDateTime.now().plusHours(2);
     }
 
     public CustomerOrder(Long id) {
         this.id = id;
     }
 
-    public String getName() {
+    public Dish getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Dish name) {
         this.name = name;
     }
 
