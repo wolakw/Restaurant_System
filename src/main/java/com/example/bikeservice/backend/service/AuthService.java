@@ -74,7 +74,7 @@ public class AuthService {
             routes.add(new AuthorizedRoute("home", "Home", HomeView.class));
             routes.add(new AuthorizedRoute("makeorderview", "Make order", MakeOrderView.class));
             routes.add(new AuthorizedRoute("userorderview", "Orders", UserOrderView.class));
-            routes.add(new AuthorizedRoute("booktableview", "Book table", BookTableView.class));
+            routes.add(new AuthorizedRoute("booktableview", "Tables", BookTableView.class));
             routes.add(new AuthorizedRoute("settings", "Settings", SettingsView.class));
             routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
         }

@@ -10,6 +10,7 @@ import com.example.bikeservice.backend.repository.UserRepository;
 import com.example.bikeservice.backend.service.OrderService;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
@@ -31,7 +32,6 @@ public class MakeOrderView extends VerticalLayout {
 
     ComboBox<Dish> dish = new ComboBox<>("Dish");
     TextField description = new TextField("Description");
-
     ComboBox<Delivery> delivery = new ComboBox<>("Delivery type");
 
     public MakeOrderView(OrderService service, UserRepository userRepository, DeliveryRepository deliveryRepository, DishRepository dishRepository) {
@@ -46,7 +46,8 @@ public class MakeOrderView extends VerticalLayout {
         List<Dish> dishes = dishRepository.findAll();
         dish.setItems(dishes);
         dish.setItemLabelGenerator(Dish::getName);
-        add (
+
+        add(
                 new H1("Place an order"),
                 dish,
                 description,
@@ -65,7 +66,7 @@ public class MakeOrderView extends VerticalLayout {
     public void makeOrder(Dish name, String description, Delivery delivery1) {
         if (dish.isEmpty()) {
             Notification.show("Choose dish");
-        } else if(delivery.isEmpty()) {
+        } else if (delivery.isEmpty()) {
             Notification.show("Choose delivery type");
         } else {
             User user = VaadinSession.getCurrent().getAttribute(User.class);
@@ -77,5 +78,7 @@ public class MakeOrderView extends VerticalLayout {
 
     private void setClear() {
         description.setValue("");
+        dish.setValue(null);
+        delivery.setValue(null);
     }
 }

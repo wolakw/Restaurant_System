@@ -16,7 +16,7 @@ import com.vaadin.flow.server.VaadinSession;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
 @Route(value = "booktableview")
-@PageTitle("Book table")
+@PageTitle("Tables")
 public class BookTableView extends VerticalLayout {
 
     private final TableService tableService;
@@ -65,7 +65,8 @@ public class BookTableView extends VerticalLayout {
                 Notification.show("Table isn't available");
             } else {
                 User user = VaadinSession.getCurrent().getAttribute(User.class);
-                tableService.book(restaurantTable, user.getUsername());
+                TableReservationThread tableReservationThread = new TableReservationThread(tableService, user.getUsername(), restaurantTable);
+                tableReservationThread.start();
                 Notification.show("Table booked");
                 table.setValue(null);
             }
@@ -92,6 +93,25 @@ public class BookTableView extends VerticalLayout {
                     table2.setValue(null);
                 }
             }
+        }
+    }
+
+    public class TableReservationThread extends Thread {
+        private final TableService tableService;
+        private final String user;
+        private final RestaurantTable table;
+
+        public TableReservationThread(TableService tableService, String user, RestaurantTable table) {
+            this.tableService = tableService;
+            this.user = user;
+            this.table = table;
+        }
+
+        @Override
+        public void run() {
+            table.setReserved(true);
+            table.setReservedBy(user);
+            tableService.update(table);
         }
     }
 }
