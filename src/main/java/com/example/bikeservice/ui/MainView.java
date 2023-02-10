@@ -20,10 +20,6 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.VaadinSession;
 
-
-/**
- * The main view is a top-level placeholder for other views.
- */
 public class MainView extends AppLayout {
 
     private final Tabs menu;
