@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Data
 @NoArgsConstructor
@@ -36,8 +37,8 @@ public class CustomerOrder {
 
     private String employee;
 
-    private LocalDateTime orderDate;
-    private LocalDateTime pickupDate;
+    private LocalDate orderDate;
+    private LocalDate pickupDate;
 
     public CustomerOrder(Dish name, String description, Delivery delivery, Status status, String client) {
         this.name = name;
@@ -46,8 +47,8 @@ public class CustomerOrder {
         this.status = status;
         this.client = client;
         this.employee = "Not assigned";
-        this.orderDate = LocalDateTime.now();
-        this.pickupDate = LocalDateTime.now().plusHours(2);
+        this.orderDate = LocalDate.now();
+        this.pickupDate = LocalDate.now().plusDays(1);
     }
 
     public CustomerOrder(Long id) {
