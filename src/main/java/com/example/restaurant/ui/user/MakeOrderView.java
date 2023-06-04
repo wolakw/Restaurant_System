@@ -19,7 +19,6 @@ import com.vaadin.flow.component.button.Button;
 
 import java.util.List;
 
-@Route(value = "makeorderview")
 @PageTitle("Make order")
 public class MakeOrderView extends VerticalLayout {
 

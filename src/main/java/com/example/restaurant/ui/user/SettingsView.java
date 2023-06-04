@@ -15,7 +15,6 @@ import com.vaadin.flow.server.VaadinSession;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.button.Button;
 
-@Route(value = "settings")
 @PageTitle("Settings")
 public class SettingsView extends VerticalLayout {
     private final UserService userService;
@@ -62,10 +61,13 @@ public class SettingsView extends VerticalLayout {
     }
 
     public void editData(String firstname, String lastname, String username) {
-        userService.editData(user, firstname, lastname, username);
-        Notification.show("Data changed");
+        if (userService.findUser(username)) {
+            Notification.show("Username isn't available");
+        } else {
+            userService.editData(user, firstname, lastname, username);
+            Notification.show("Data changed");
+        }
     }
-
     public void changePassword(String oldpassword, String newpassword1, String newpassword2) {
         if (!user.checkPassword(oldpassword)) {
             Notification.show("Old password isn't correct");

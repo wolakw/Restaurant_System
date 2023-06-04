@@ -14,7 +14,6 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.VaadinSession;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
-@Route(value = "booktableview")
 @PageTitle("Tables")
 public class BookTableView extends VerticalLayout {
 

@@ -44,8 +44,8 @@ public class CustomerOrder {
         this.status = status;
         this.client = client;
         this.employee = "Not assigned";
-        this.orderDate = LocalDate.now();
-        this.pickupDate = LocalDate.now().plusDays(1);
+        this.orderDate = LocalDate.parse("2023-05-29");
+        this.pickupDate = LocalDate.parse("2023-05-29");
     }
 
     public CustomerOrder(Long id) {

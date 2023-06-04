@@ -23,6 +23,14 @@ public class RegisterView extends VerticalLayout {
     PasswordField password1 = new PasswordField("Password");
     PasswordField password2 = new PasswordField("Confirm Password");
 
+    private void setClear() {
+        firstName.setValue("");
+        lastName.setValue("");
+        password1.setValue("");
+        password2.setValue("");
+        username.setValue("");
+    }
+
     public RegisterView(AuthService authService, UserService userService) {
         this.authService = authService;
         this.service =  userService;
@@ -47,14 +55,6 @@ public class RegisterView extends VerticalLayout {
         setSizeFull();
     }
 
-    private void setClear() {
-        firstName.setValue("");
-        lastName.setValue("");
-        password1.setValue("");
-        password2.setValue("");
-        username.setValue("");
-    }
-
     private void register(String firstname, String lastname, String username, String password1, String password2) {
         if (firstname.isEmpty()) {
             Notification.show("Enter first name");
@@ -63,7 +63,7 @@ public class RegisterView extends VerticalLayout {
         } else if (password1.isEmpty()) {
             Notification.show("Enter password");
         } else if (!password1.equals(password2)) {
-            Notification.show("Password don't match");
+            Notification.show("Passwords don't match");
         } else if (username.trim().isEmpty()) {
             Notification.show("Enter username");
         } else if (service.findUser(username)) {

@@ -7,7 +7,6 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
-@Route(value = "emporderview")
 @PageTitle("Orders")
 public class EmpOrderView extends VerticalLayout {
 
